@@ -19,6 +19,7 @@ def frofit_per(data_close):
     return profit_per
 
 def compute_var(data):
+    """compute var for data"""
     compute_average = sum(data) / len(data)
     var = list(range(len(data)))
     for n in range(len(data)):
@@ -27,6 +28,7 @@ def compute_var(data):
     return compute_var
 
 def compute_var_bia(data):
+    """compute var for data concider bias"""
     var_bia = 1 / (len(data) - 1)
     compute_average = sum(data) / len(data)
     var_sample = list(range(len(data)))
@@ -36,6 +38,7 @@ def compute_var_bia(data):
     return compute_var
 
 def random_sample(ai_settings, data, random_mark):
+    """initiate random sample"""
     sample = list(range(ai_settings.sample_num))
     # refresh random_mark
     rd.shuffle(random_mark)
