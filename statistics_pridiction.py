@@ -5,19 +5,19 @@ import matplotlib.pyplot as plt
 import numpy as np
 from numpy.linalg import cholesky
 
-from settings import Settings
-import functions as fuc
+from statistics_settings import Settings
+import statistics_functions as fuc
+
 
 #initiate settings
 ai_settings = Settings()
 
 #read raw hs300 data
-hs300 = fuc.read_file(ai_settings)
+hs300 = pd.read_excel(ai_settings.file_path_1)
 hs300 = pd.DataFrame(hs300)
 
 #select close price for compute
 data_close = hs300.loc[0:, 'close']
-print(data_close)
 profit_day = fuc.frofit_per(data_close)
 
 #set random sample mark
@@ -61,8 +61,6 @@ print("Predict var: "+str(predict_var))
 print("Real average: "+str(real_average))
 print("Real var: "+str(real_var))
 
-#set window size for plot
-plt.figure(dpi=128, figsize=(10,6))
 
 #if settings is true show hist plot
 if ai_settings.draw_out:

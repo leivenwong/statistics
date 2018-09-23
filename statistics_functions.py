@@ -2,14 +2,14 @@ import pandas as pd
 import random as rd
 import matplotlib.pyplot as plt
 
-from settings import Settings
+from statistics_settings import Settings
 
 def frofit_per(data_close):
     """compute profit rate per day or other cycle"""
     profit_per = list(range(len(data_close)))
     profit_per[0] = 0
     for i in range(1, len(data_close)):
-        profit_per[i] = (data_close[i] / data_close[i - 1] - 1) * 100
+        profit_per[i] = ((data_close[i] / data_close[i - 1] - 1) * 100)
     return profit_per
 
 def compute_var(data):
@@ -41,7 +41,9 @@ def random_sample(ai_settings, data, random_mark):
     return sample
 
 def draw_out(normal_sample, profit_day, avg_sample, e_var_sample, ai_settings):
-    # show hist plot
+    """show hist plot"""
+    # set window size for plot
+    plt.figure(dpi=128, figsize=(10, 6))
     plt.figure(1)
 
     plt.subplot(221)
