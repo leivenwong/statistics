@@ -16,15 +16,13 @@ import back_testing
 ai_settings = Settings()
 
 #read raw hs300 data
-hs300 = pd.read_excel(ai_settings.file_path_1)
+hs300 = back_testing.out_net_value['target_net_value']
 hs300 = pd.DataFrame(hs300)
 net_value = back_testing.out_net_value['net_value']
 net_value = pd.DataFrame(net_value)
 
-#select close price for compute
-profit_ln_x = hs300.loc[0:, 'close']
-#profit_ln_x = strategy_functions.compute_ma(profit_ln_x, 5)
-
+#select x,y for compute correlation
+profit_ln_x = hs300.loc[0:, 'target_net_value']
 profit_ln_y = net_value.loc[0:, 'net_value']
 
 #compute r

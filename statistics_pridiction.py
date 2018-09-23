@@ -63,6 +63,6 @@ print("Real var: "+str(real_var))
 
 
 #if settings is true show hist plot
-if ai_settings.draw_out:
+if ai_settings.draw_out and __name__ == '__main__':
     fuc.draw_out(normal_sample, profit_day, avg_sample, e_var_sample,
         ai_settings)

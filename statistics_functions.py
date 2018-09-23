@@ -65,6 +65,7 @@ def draw_out(normal_sample, profit_day, avg_sample, e_var_sample, ai_settings):
     plt.show()
 
 def compute_r(profit_ln, profit_ln_roll):
+    """compute r for correlation"""
     e_profit_ln = sum(profit_ln) / len(profit_ln)
     e_profit_ln_roll = sum(profit_ln_roll) / len(profit_ln_roll)
     var_profit_ln = compute_var(profit_ln)
@@ -78,6 +79,7 @@ def compute_r(profit_ln, profit_ln_roll):
     return r
 
 def compute_roll(profit_ln, roll):
+    """move time windows"""
     profit_ln_roll = [0] * len(profit_ln)
     for n in range(roll):
         profit_ln_roll[n] = 0
