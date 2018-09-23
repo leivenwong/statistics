@@ -64,22 +64,7 @@ print("Real var: "+str(real_var))
 #set window size for plot
 plt.figure(dpi=128, figsize=(10,6))
 
-#show hist plot
-plt.figure(1)
-
-plt.subplot(221)
-plt.title("Nomal distribution",fontsize=12)
-plt.hist(normal_sample, bins=ai_settings.hist_bins, color="Orange", density=1)
-
-plt.subplot(222)
-plt.title("Profit per day",fontsize=12)
-plt.hist(profit_day, bins=200, color="Green", density=1)
-
-plt.subplot(223)
-plt.title("Predict average",fontsize=12)
-plt.hist(avg_sample, bins=ai_settings.hist_bins, color="Blue", density=1)
-
-plt.subplot(224)
-plt.title("Predict var",fontsize=12)
-plt.hist(e_var_sample, bins=ai_settings.hist_bins, color="Red", density=1)
-plt.show()
+#if settings is true show hist plot
+if ai_settings.draw_out:
+    fuc.draw_out(normal_sample, profit_day, avg_sample, e_var_sample,
+        ai_settings)

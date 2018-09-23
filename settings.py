@@ -2,6 +2,8 @@ class Settings():
     """initiate settings"""
     def __init__(self):
         self.sample_num = 100
-        self.cycle_num = 100000
-        self.file_path = "399300.xlsx"
+        self.cycle_num = 5000
+        self.file_path_1 = "399300_cov.xlsx"
+        self.file_path_2 = "999999.xlsx"
         self.hist_bins = int(self.cycle_num / 50)
+        self.draw_out = True
